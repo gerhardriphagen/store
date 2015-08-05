@@ -1,2 +1,2 @@
-# photoworld
-This photo app will be used by Meike.
+# STORE
+Wanna buy some?
