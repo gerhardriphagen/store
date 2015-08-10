@@ -14,3 +14,31 @@ app.directive('randomAvatar', function () {
         }
     }
 });
+
+
+
+
+
+app.controller('ProductController', ['$scope', function($scope) {
+    $scope.products = [
+        {
+            name: 'Product 1',
+            description: 'Description 1',
+            thumbnail: 'test',
+            price: 4.95
+        },
+        {
+            name: 'P2',
+            description: 'D2',
+            thumbnail: 'test',
+            price: 3.95
+        },
+        {
+            name: 'P3',
+            description: 'D3',
+            thumbnail: 'test',
+            price: 4.95
+        },
+    ];
+}]);
+

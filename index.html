@@ -1,11 +1,26 @@
 <!doctype html>
 <html ng-app="app">
 <head>
-    <title>My Angular App</title>
+    <title>The Store</title>
 </head>
 <body>
     {{1+1}}
-    <random-avatar></random-avatar>
+    <!--<random-avatar></random-avatar>-->
+    <div ng-controller="ProductController">
+        <div ng-repeat="product in products">
+            <p>{{product.name}}</p>
+            <p>{{product.description}}</p>
+            <p>{{product.thumbnail}}</p>
+            <p>{{product.price}}</p>
+        </div>
+    </div>
+
+
+
+
+
+
+
     <script src="js/angular.js"></script>
     <script src="js/app.js"></script>
 </body>
