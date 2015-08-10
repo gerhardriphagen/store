@@ -22,22 +22,22 @@ app.directive('randomAvatar', function () {
 app.controller('ProductController', ['$scope', function($scope) {
     $scope.products = [
         {
-            name: 'Product 1',
-            description: 'Description 1',
-            thumbnail: 'test',
-            price: 4.95
+            name: 'Coffee',
+            description: '10 cups of coffee @ Starbucks',
+            thumbnail: 'img/starbucks.jpg',
+            points: 1500
         },
         {
-            name: 'P2',
-            description: 'D2',
-            thumbnail: 'test',
-            price: 3.95
+            name: 'Cleaning',
+            description: '3 hours of cleaning from Helpling',
+            thumbnail: 'img/helpling.jpg',
+            points: 2000
         },
         {
-            name: 'P3',
-            description: 'D3',
-            thumbnail: 'test',
-            price: 4.95
+            name: '1 day off!',
+            description: 'Get an extra day of vacation',
+            thumbnail: 'img/vacation.jpeg',
+            points: 10000
         },
     ];
 }]);

@@ -10,16 +10,10 @@
         <div ng-repeat="product in products">
             <p>{{product.name}}</p>
             <p>{{product.description}}</p>
-            <p>{{product.thumbnail}}</p>
-            <p>{{product.price}}</p>
+            <img src="{{product.thumbnail}}">
+            <p>{{product.points}}</p>
         </div>
     </div>
-
-
-
-
-
-
 
     <script src="js/angular.js"></script>
     <script src="js/app.js"></script>
