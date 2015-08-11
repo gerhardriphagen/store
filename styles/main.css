@@ -11,6 +11,14 @@ body {
     margin-bottom: 80px;
 }
 
+.circular {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+}
+
 .header h1 {
     color: #000;
     font-size: 50px;
@@ -18,14 +26,24 @@ body {
     text-transform: lowercase;
 }
 
+.buybutton {
+    position:absolute;
+    top: 90%;
+    left: 50%;
+    color: #000;
+    font-size: 14px;
+}
+
 .card {
     overflow: hidden;
     position: relative;
-    width: 31%;
+    width: 25%;
+    height: 800px;
     display: inline-block;
     margin: 0 2px;
     position: relative;
     border: solid;
+    padding: 30px;
 }
 
 .name {
