@@ -45,7 +45,7 @@ app.controller('ProductController', ['$scope', function($scope) {
 
 app.directive('product', function() {
     return {
-        Template:
+        template:
             'name: {{product.name}} description: {{product.description}} thumbnail: {{product.thumbnail}} points: {{product.points}}'
     }
 });
