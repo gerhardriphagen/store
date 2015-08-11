@@ -1,22 +1,4 @@
 var app = angular.module('app', []);
-//
-//app.directive('randomAvatar', function () {
-//    return {
-//        restrict: 'E',
-//        template: '<img ng-src="{{avatarUrl}}"/>',
-//        link: function (scope) {
-//
-//            //$http.get('https://randomuser.me/api/').then(function (data) {
-//            //    debugger
-//            //});
-//           var baseUrl = 'http://api.randomuser.me/portraits/women/'
-//            scope.avatarUrl = baseUrl + Math.floor(Math.random() * 96) + '.jpg';
-//        }
-//    }
-//});
-
-
-
 
 
 app.controller('ProductController', ['$scope', function($scope) {
@@ -38,7 +20,7 @@ app.controller('ProductController', ['$scope', function($scope) {
             description: 'Get an extra day of vacation',
             thumbnail: 'img/vacation.jpeg',
             points: 10000
-        },
+        }
     ];
 }]);
 
@@ -46,6 +28,9 @@ app.controller('ProductController', ['$scope', function($scope) {
 app.directive('storeProduct', function() {
     return {
         restrict: 'E',
+        scope: {
+            product: "="
+        },
         templateUrl: 'js/store-product.html'
     }
 });

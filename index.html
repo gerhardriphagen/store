@@ -2,12 +2,16 @@
 <html ng-app="app">
 <head>
     <title>The Store</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
 </head>
 <body>
-    {{1+1}}
-    <!--<random-avatar></random-avatar>-->
-    <div ng-controller="ProductController">
-        <product ng-repeat="product in products"></product>
+    <div class="header">
+        <div class="container">
+            <h1>Store</h1>
+        </div>
+    </div>
+    <div class="main" ng-controller="ProductController">
+        <store-product product="p" ng-repeat="p in products" class="card"></store-product>
     </div>
 
     <script src="js/angular.js"></script>
