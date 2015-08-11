@@ -7,12 +7,7 @@
     {{1+1}}
     <!--<random-avatar></random-avatar>-->
     <div ng-controller="ProductController">
-        <div ng-repeat="product in products">
-            <p>{{product.name}}</p>
-            <p>{{product.description}}</p>
-            <img src="{{product.thumbnail}}">
-            <p>{{product.points}}</p>
-        </div>
+        <product ng-repeat="product in products"></product>
     </div>
 
     <script src="js/angular.js"></script>
