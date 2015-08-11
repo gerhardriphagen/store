@@ -1,8 +1,9 @@
 var app = angular.module('app', []);
 
 
-app.controller('ProductController', function($scope, ProductService) {
+app.controller('ProductController', function($scope, ProductService, CurrentUserService) {
     $scope.products = ProductService.getAll();
+    //$scope.user = CurrentUserService.get();
 });
 
 
@@ -40,15 +41,28 @@ app.service('CurrentUserService', function() {
                 moneyz: 2000
         }
     }
+
+    this.delete = function(){
+        alert('DELETED!');
+    }
 });
 
 
-app.directive('storeProduct', function() {
+app.directive('storeProduct', function(CurrentUserService) {
     return {
         restrict: 'E',
         scope: {
             product: "="
         },
-        templateUrl: 'js/store-product.html'
+        templateUrl: 'js/store-product.html',
+        link: function(scope) {
+            scope.user = CurrentUserService.get()
+            scope.purchase = function(product) {
+                confirm('you sure you wanna buy?')
+
+                //alert(product.points);
+                //alert(CurrentUserService.get().moneyz);
+           };
+        }
     }
 });
