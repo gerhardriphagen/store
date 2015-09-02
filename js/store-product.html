@@ -2,5 +2,5 @@
 <div class="title">{{product.name}}</div>
 <div>{{product.description}}</div> <hr />
 <div class="points">{{product.points}}</div> <hr />
-<div ng-if="product.points <= user.moneyz" class="buybutton" class="btn btn-active" ng-click="purchase(product)">Buy me!</div>
-<div ng-if="product.points > user.moneyz">Not enough points: Continue learning</div>
+<div ng-if="product.points <= user.moneyz" class="btn" class="btn btn-active" ng-click="purchase(product)">Inwisselen</div>
+<div ng-if="product.points > user.moneyz" class="notenoughpoints">Nog {{product.points - user.moneyz}} punten</div>
