@@ -26,7 +26,19 @@ app.service('ProductService', function() {
                 name: '1 day off!',
                 description: 'Get an extra day of vacation',
                 thumbnail: 'img/vacation.jpeg',
-                points: 10000
+                points: 20000
+            },
+            {
+                name: '1 day off!',
+                description: 'Get an extra day of vacation',
+                thumbnail: 'img/vacation.jpeg',
+                points: 1000
+            },
+            {
+                name: '1 day off!',
+                description: 'Get an extra day of vacation',
+                thumbnail: 'img/vacation.jpeg',
+                points: 500
             }
         ];
     }
