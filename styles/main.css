@@ -1,6 +1,6 @@
-html, body {
-    margin: 25px 25px 25px 25px;
-}
+/*html, body {*/
+    /*margin: 25px 25px 25px 25px;*/
+/*}*/
 
 body {
     font-family: Helvetica, Arial, serif;
@@ -19,8 +19,25 @@ body {
     text-transform: lowercase;
 }
 
+.pageheader {
+    width: 100%;
+    height: 100px;
+    background-color: #A0B8B8;
+    margin-top: -10px;
+}
+
 .background {
     background-color: #31bb9b;
+}
+
+.mainpart {
+    background-color: #FAFAFA;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 200px;
+    margin-right: 200px;
+    /*padding-left: 50px;*/
+    /*padding-right: 50px;*/
 }
 
 .card {
@@ -65,7 +82,7 @@ body {
 }
 
 .btn {
-    height: 50px;
+    height: 30px;
     width: 90%;
     background-color: #31bb9b;
     border-radius: 15px;
@@ -74,10 +91,12 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
-    line-height: 50px;
+    line-height: 30px;
     text-transform: uppercase;
     font-weight: 600;
     color: #E4FBF6;
+    font-size: 12px;
+    letter-spacing: 2px;
 }
 
 .btn:hover {
@@ -91,7 +110,7 @@ body {
 }
 
 .notenoughpoints {
-    height: 50px;
+    height: 30px;
     width: 90%;
     background-color: grey;
     border-radius: 15px;
@@ -100,10 +119,12 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
-    line-height: 50px;
+    line-height: 30px;
     text-transform: uppercase;
     font-weight: 600;
     color: #E4FBF6;
+    font-size: 12px;
+    letter-spacing: 2px;
 }
 
 .title {

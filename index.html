@@ -1,16 +1,12 @@
 <!doctype html>
-<html ng-app="app">
+<html ng-app="app" class="background">
 <head>
     <title>The Store</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
 </head>
 <body>
-    <div class="background">
-        <div class="header">
-            <div>
-                <h1>Store</h1>
-            </div>
-        </div>
+    <div class="mainpart">
+        <div class="pageheader"></div>
         <div class="main" ng-controller="ProductController">
             <store-product product="p" ng-repeat="p in products" class="card"></store-product>
         </div>
