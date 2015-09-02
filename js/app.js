@@ -11,31 +11,26 @@ app.service('ProductService', function() {
     this.getAll = function () {
         return [
             {
-                name: 'Coffee',
-                description: '10 cups of coffee @ Starbucks',
+                description: '50% korting op een lekker kopje koffie bij de Starbucks',
                 thumbnail: 'img/starbucks.jpg',
                 points: 1500
             },
             {
-                name: 'Cleaning',
-                description: '3 hours of cleaning from Helpling',
+                description: 'Laat je huis lekker schoonmaken door de mensen van Helpling. Je krijgt 3 uur gratis van ons.',
                 thumbnail: 'img/helpling.jpg',
                 points: 2000
             },
             {
-                name: '1 day off!',
                 description: 'Get an extra day of vacation',
                 thumbnail: 'img/vacation.jpeg',
                 points: 20000
             },
             {
-                name: '1 day off!',
                 description: 'Get an extra day of vacation',
                 thumbnail: 'img/vacation.jpeg',
                 points: 1000
             },
             {
-                name: '1 day off!',
                 description: 'Get an extra day of vacation',
                 thumbnail: 'img/vacation.jpeg',
                 points: 500
