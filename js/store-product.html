@@ -1,6 +1,6 @@
-<h1>{{product.name}}</h1>
-<p>{{product.description}}</p>
 <img class="circular" src="{{product.thumbnail}}">
-<p class="points">{{product.points}}</p>
-<button ng-if="product.points <= user.moneyz" class="buybutton" class="btn btn-active" ng-click="purchase(product)">Buy me!</button>
-<p ng-if="product.points > user.moneyz">Not enough points: Continue learning</p>
+<div class="title">{{product.name}}</div>
+<div>{{product.description}}</div> <hr />
+<div class="points">{{product.points}}</div> <hr />
+<div ng-if="product.points <= user.moneyz" class="buybutton" class="btn btn-active" ng-click="purchase(product)">Buy me!</div>
+<div ng-if="product.points > user.moneyz">Not enough points: Continue learning</div>
