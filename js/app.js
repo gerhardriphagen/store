@@ -34,6 +34,31 @@ app.service('ProductService', function() {
                 description: 'Get an extra day of vacation',
                 thumbnail: 'img/vacation.jpeg',
                 points: 500
+            },
+            {
+                description: '50% korting op een lekker kopje koffie bij de Starbucks',
+                thumbnail: 'img/starbucks.jpg',
+                points: 1500
+            },
+            {
+                description: 'Laat je huis lekker schoonmaken door de mensen van Helpling. Je krijgt 3 uur gratis van ons.',
+                thumbnail: 'img/helpling.jpg',
+                points: 2000
+            },
+            {
+                description: 'Get an extra day of vacation',
+                thumbnail: 'img/vacation.jpeg',
+                points: 20000
+            },
+            {
+                description: 'Get an extra day of vacation',
+                thumbnail: 'img/vacation.jpeg',
+                points: 1000
+            },
+            {
+                description: 'Get an extra day of vacation',
+                thumbnail: 'img/vacation.jpeg',
+                points: 500
             }
         ];
     }

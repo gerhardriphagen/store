@@ -1,8 +1,8 @@
-<img class="cardimage" src="{{product.thumbnail}}">
-<div class="description">{{product.description}}</div>
+<img class="productimage" src="{{product.thumbnail}}">
+<div class="productdescription">{{product.description}}</div>
 <div class="pointborder">
-    <div class="points">{{product.points}} punten</div>
+    <div class="productpoints">{{product.points | number:0}} punten</div>
 </div>
 <div ng-if="product.points <= user.moneyz" class="btn" class="btn btn-active" ng-click="purchase(product)">Inwisselen</div>
-<div ng-if="product.points > user.moneyz" class="notenoughpoints">Nog {{product.points - user.moneyz}} punten</div>
+<div ng-if="product.points > user.moneyz" class="notenoughpoints">Nog {{product.points - user.moneyz | number:0}} punten</div>
 

@@ -1,49 +1,70 @@
-/*html, body {*/
-    /*margin: 25px 25px 25px 25px;*/
-/*}*/
-
-body {
+html, body {
     font-family: Helvetica, Arial, serif;
+    color: grey;
+    background-color: #FAFAFA;
 }
 
-.cardimage {
-    display: inline-block;
-    width: 100%;
-    height: 200px;
+/*GLOBAL ELEMENTS*/
+
+.mainheader {
+    width: 120%;
+    height: 70px;
+    background: linear-gradient(90deg,#41b99b 0,#4a90e2 100%);
+    margin-top: -20px;
+    margin-right: -20px;
+    margin-left: -20px;
+    margin-bottom: 50px;
 }
 
-.header h1 {
-    color: #000;
-    font-size: 50px;
+/*TYPOGRAPHY*/
+
+h1, h2, h3, h4 {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
     font-weight: bold;
-    text-transform: lowercase;
 }
 
-.pageheader {
-    width: 100%;
-    height: 100px;
-    background-color: #A0B8B8;
-    margin-top: -10px;
+h1 {
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
 }
 
-.background {
-    background-color: #31bb9b;
+h2 {
+    font-size: 1.5em;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
 }
+
+h3 {
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+h4 {
+    font-size: 0.8em;
+    margin-top: 1.33em;
+    margin-bottom: 1.33em;
+}
+
+/*STORE PAGE STRUCTURE*/
 
 .mainpart {
-    background-color: #FAFAFA;
     margin-top: 0px;
     margin-bottom: 0px;
-    margin-left: 200px;
-    margin-right: 200px;
-    /*padding-left: 50px;*/
-    /*padding-right: 50px;*/
+    margin-left: 10%;
+    margin-right: 10%;
 }
+
+/*CARD ELEMENTS*/
 
 .card {
     overflow: hidden;
     width: 20%;
     min-width: 200px;
+    max-width: 250px;
     height: auto;
     display: inline-block;
     border: solid 1px;
@@ -52,27 +73,25 @@ body {
     margin: 10px;
 }
 
-.name {
-    color: #000;
-    font-size: 15px;
-    font-weight: bold;
-    margin-bottom: 5px;
+.productimage {
+    display: inline-block;
+    width: 100%;
+    height: 150px;
 }
 
-.description {
-    color: grey ;
+.productdescription {
     font-size: 14px;
     margin: 10px 15px 10px 15px;
     height: 60px;
 }
 
-.points {
-    color: grey;
+.productpoints {
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 400;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
+    color: #4a90e2;
 }
 
 .pointborder {
@@ -84,7 +103,7 @@ body {
 .btn {
     height: 30px;
     width: 90%;
-    background-color: #31bb9b;
+    background-color: #41b99b;
     border-radius: 15px;
     margin-left: auto;
     margin-right: auto;
@@ -125,18 +144,4 @@ body {
     color: #E4FBF6;
     font-size: 12px;
     letter-spacing: 2px;
-}
-
-.title {
-    color: #3f3f3f;
-    font-size: 20px;
-    font-weight: 900;
-    text-transform: uppercase;
-}
-
-.itemdescription {
-    color: #3f3f3f;
-    font-size: 50px;
-    font-weight: 900;
-    text-transform: lowercase;
 }
