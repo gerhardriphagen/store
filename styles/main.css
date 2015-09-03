@@ -2,6 +2,8 @@ html, body {
     font-family: Helvetica, Arial, serif;
     color: grey;
     background-color: #FAFAFA;
+    margin: 0;
+    padding: 0;
 }
 
 /*GLOBAL ELEMENTS*/
@@ -61,16 +63,19 @@ h4 {
 /*CARD ELEMENTS*/
 
 .card {
-    overflow: hidden;
-    width: 20%;
+    width: 33.333%;
     min-width: 200px;
-    max-width: 250px;
+    /*max-width: 250px;*/
     height: auto;
     display: inline-block;
-    border: solid 1px;
+    border: solid 1px #A0B8B8;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
     border-radius: 25px;
-    border-color: #A0B8B8;
-    margin: 10px;
+    overflow: hidden;
+    margin-left: 30px;
+    margin-bottom: 25px;
 }
 
 .productimage {
