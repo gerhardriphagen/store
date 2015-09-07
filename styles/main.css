@@ -1,6 +1,6 @@
 html, body {
     font-family: Helvetica, Arial, serif;
-    color: grey;
+    color: #2d383d;
     background-color: #FAFAFA;
     margin: 0;
     padding: 0;
@@ -9,13 +9,10 @@ html, body {
 /*GLOBAL ELEMENTS*/
 
 .mainheader {
-    width: 120%;
+    width: 100%;
     height: 70px;
     background: linear-gradient(90deg,#41b99b 0,#4a90e2 100%);
-    margin-top: -20px;
-    margin-right: -20px;
-    margin-left: -20px;
-    margin-bottom: 50px;
+    margin-bottom: 48px;
 }
 
 /*TYPOGRAPHY*/
@@ -56,26 +53,26 @@ h4 {
 .mainpart {
     margin-top: 0px;
     margin-bottom: 0px;
-    margin-left: 10%;
-    margin-right: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 /*CARD ELEMENTS*/
 
 .card {
-    width: 33.333%;
-    min-width: 200px;
-    /*max-width: 250px;*/
+    width: 35.51%;
+    min-width: 150px;
+    max-width: 300px;
     height: auto;
     display: inline-block;
-    border: solid 1px #A0B8B8;
+    border: 1px solid #e1e1e1;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;
-    border-radius: 25px;
+    border-radius: 4px;
     overflow: hidden;
-    margin-left: 30px;
-    margin-bottom: 25px;
+    margin-left: 48px;
+    margin-bottom: 48px;
 }
 
 .productimage {
@@ -86,7 +83,7 @@ h4 {
 
 .productdescription {
     font-size: 14px;
-    margin: 10px 15px 10px 15px;
+    padding: 10px 15px 10px 15px;
     height: 60px;
 }
 
@@ -94,22 +91,21 @@ h4 {
     font-size: 16px;
     font-weight: 400;
     text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    color: #4a90e2;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .pointborder {
     border-bottom: solid 1px;
     border-top: solid 1px;
-    border-color: #A0B8B8;
+    border-color: #e1e1e1;
 }
 
 .btn {
     height: 30px;
     width: 90%;
     background-color: #41b99b;
-    border-radius: 15px;
+    border-radius: 4px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
@@ -126,6 +122,7 @@ h4 {
 .btn:hover {
     background: #1D705D;
     transition: background 300ms;
+    cursor: pointer;
 }
 
 .btn-downloaded {
@@ -136,8 +133,8 @@ h4 {
 .notenoughpoints {
     height: 30px;
     width: 90%;
-    background-color: grey;
-    border-radius: 15px;
+    background-color: #2d383d;
+    border-radius: 4px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;

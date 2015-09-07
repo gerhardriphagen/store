@@ -70,13 +70,21 @@ app.service('CurrentUserService', function() {
         return {
                 firstName: 'Gerhard',
                 lastName: 'Riphagen',
-                moneyz: 2000
+                totalpoints: 10000,
+                remainingpoints: 2000,
+
         }
-    }
+    };
 
     this.delete = function(){
         alert('DELETED!');
+
+
     }
+});
+
+app.service('UserProduct', function() {
+    this.products = [];
 });
 
 
@@ -88,9 +96,9 @@ app.directive('storeProduct', function(CurrentUserService) {
         },
         templateUrl: 'js/store-product.html',
         link: function(scope) {
-            scope.user = CurrentUserService.get()
+            scope.user = CurrentUserService.get();
             scope.purchase = function(product) {
-                confirm('you sure you wanna buy?')
+                confirm('you sure you wanna buy?');
 
                 //alert(product.points);
                 //alert(CurrentUserService.get().moneyz);
