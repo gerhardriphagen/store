@@ -4,10 +4,16 @@
     <title>The Store</title>
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
 </head>
-<body>
-    <div class="mainheader"></div>
+<body ng-controller="ProductController">
+    <div class="mainheader">
+        <div class="userinfo">
+            <div>{{user.firstName}} {{user.lastName}}</div>
+            <div>{{user.totalPoints}}</div>
+            <div>{{user.remainingPoints}}</div>
+        </div>
+    </div>
     <div>
-        <div class="mainpart" ng-controller="ProductController">
+        <div class="mainpart" >
             <store-product product="p" ng-repeat="p in products" class="card"></store-product>
         </div>
     </div>

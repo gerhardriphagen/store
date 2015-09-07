@@ -15,6 +15,17 @@ html, body {
     margin-bottom: 48px;
 }
 
+.userinfo {
+    float: right;
+    height: 100%;
+    width: 150px;
+    display: block;
+    padding-right: 10px;
+    vertical-align: text-bottom;
+    text-align: right;
+    color: #FFFFFF;
+}
+
 /*TYPOGRAPHY*/
 
 h1, h2, h3, h4 {
