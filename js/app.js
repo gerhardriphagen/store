@@ -86,13 +86,16 @@ app.service('ProductService', function() {
 
 
 app.service('CurrentUserService', function() {
+
+    var userObject = {
+        firstName: 'Gerhard',
+        lastName: 'Riphagen',
+        totalPoints: 10000,
+        remainingPoints: 2000
+    };
+
     this.get = function () {
-        return {
-                firstName: 'Gerhard',
-                lastName: 'Riphagen',
-                totalPoints: 10000,
-                remainingPoints: 2000
-        }
+        return userObject;
     };
 
     this.delete = function(){
