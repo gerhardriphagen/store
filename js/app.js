@@ -1,9 +1,10 @@
 var app = angular.module('app', []);
 
 
-app.controller('ProductController', function($scope, ProductService, CurrentUserService) {
+app.controller('ProductController', function($scope, ProductService, CurrentUserService, UserProductService) {
     $scope.products = ProductService.getAll();
     $scope.user = CurrentUserService.get();
+    $scope.purchased = UserProductService.purchasedproducts;
 });
 
 
@@ -125,7 +126,7 @@ app.directive('storeProduct', function(CurrentUserService, UserProductService) {
                 if(confirm('Sure you wanna buy' + ' ' + product.name)) {
                     scope.purchased.push(product.id);
                     scope.user.remainingPoints = scope.user.remainingPoints - product.points;  //the remaining points on the buttons are updated, but the remaining points in the header not
-                };
+                }
 
            };
         }

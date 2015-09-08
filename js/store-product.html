@@ -3,6 +3,7 @@
 <div class="pointborder">
     <div class="productpoints">{{product.points | number:0}} punten</div>
 </div>
-<div ng-if="product.points <= user.remainingPoints" class="btn" class="btn btn-active" ng-click="purchase(product)">Inwisselen</div>
-<div ng-if="product.points > user.remainingPoints" class="notenoughpoints">Nog {{product.points - user.remainingPoints | number:0}} punten</div>
+<div ng-if="product.points <= user.remainingPoints && purchased.indexOf(product.id) == -1" class="btn" class="btn btn-active" ng-click="purchase(product)">Inwisselen</div>
+<div ng-if="product.points > user.remainingPoints && purchased.indexOf(product.id) == -1" class="notenoughpoints">Nog {{product.points - user.remainingPoints | number:0}} punten</div>
+<div ng-if="purchased.indexOf(product.id) > -1" class="purchasedproduct">Already purchased</div>
 
