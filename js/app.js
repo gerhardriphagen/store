@@ -92,7 +92,7 @@ app.service('CurrentUserService', function() {
         firstName: 'Gerhard',
         lastName: 'Riphagen',
         totalPoints: 10000,
-        remainingPoints: 2000
+        remainingPoints: 10000
     };
 
     this.get = function () {
@@ -108,8 +108,9 @@ app.service('CurrentUserService', function() {
 
 
 app.service('UserProductService', function() {
-    this.purchasedproducts = [];
+    this.purchasedproducts = localStorage['testproduct'];                                                  //replace 'localStorage['testproduct']' by '[]' to have without local storage
 });
+
 
 
 app.directive('storeProduct', function(CurrentUserService, UserProductService) {
@@ -124,10 +125,13 @@ app.directive('storeProduct', function(CurrentUserService, UserProductService) {
             scope.purchased = UserProductService.purchasedproducts;
             scope.purchase = function(product) {
                 if(confirm('Sure you wanna buy' + ' ' + product.name)) {
-                    scope.purchased.push(product.id);
-                    scope.user.remainingPoints = scope.user.remainingPoints - product.points;  //the remaining points on the buttons are updated, but the remaining points in the header not
+                    scope.user.remainingPoints = scope.user.remainingPoints - product.points;
+                    var a = localStorage['testproduct'];                                                   //remove to have without local storage
+                    var b = ',' + product.id;                                                              //remove to have without local storage
+                    var position = a.length;                                                               //remove to have without local storage
+                    scope.purchased = localStorage['testproduct'] = [a.slice(0, position), b, a.slice(position)].join('');
+                    //scope.purchased.push(product.id);                                                    //add to have without local storage
                 }
-
            };
         }
     }
