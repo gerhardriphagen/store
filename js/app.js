@@ -91,7 +91,6 @@ app.service('CurrentUserService', function() {
     var userObject = {
         firstName: 'Gerhard',
         lastName: 'Riphagen',
-        totalPoints: 10000,
         remainingPoints: 10000
     };
 
@@ -102,13 +101,16 @@ app.service('CurrentUserService', function() {
     this.delete = function(){
         alert('DELETED!');
 
-
     }
 });
 
 
 app.service('UserProductService', function() {
-    this.purchasedproducts = localStorage['testproduct'];                                                  //replace 'localStorage['testproduct']' by '[]' to have without local storage
+    if(typeof localStorage['purchasedProductsLocal'] === 'undefined'){
+        localStorage['purchasedProductsLocal'] = []
+    }
+
+    this.purchasedproducts = localStorage['purchasedProductsLocal'];
 });
 
 
@@ -124,15 +126,19 @@ app.directive('storeProduct', function(CurrentUserService, UserProductService) {
             scope.user = CurrentUserService.get();
             scope.purchased = UserProductService.purchasedproducts;
             scope.purchase = function(product) {
-                if(confirm('Sure you wanna buy' + ' ' + product.name)) {
+                if(confirm('Confirm if you like to purchase' + ' ' + product.name)) {
                     scope.user.remainingPoints = scope.user.remainingPoints - product.points;
-                    var a = localStorage['testproduct'];                                                   //remove to have without local storage
-                    var b = ',' + product.id;                                                              //remove to have without local storage
-                    var position = a.length;                                                               //remove to have without local storage
-                    scope.purchased = localStorage['testproduct'] = [a.slice(0, position), b, a.slice(position)].join('');
-                    //scope.purchased.push(product.id);                                                    //add to have without local storage
+                    var a = localStorage['purchasedProductsLocal'];
+                    if (a.length < 1) {
+                        scope.purchased = localStorage['purchasedProductsLocal'] = String(product.id);
+                    }
+                    else {
+                        scope.purchased = localStorage['purchasedProductsLocal'] = [a,",", product.id].join('');
+                    }
                 }
            };
         }
     }
 });
+
+//NEXT TASK: add user points to localStorage
