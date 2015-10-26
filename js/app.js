@@ -1,10 +1,10 @@
 var app = angular.module('app', []);
 
 
-app.controller('ProductController', function($scope, ProductService, CurrentUserService, UserProductService) {
+app.controller('ProductController', function($scope, ProductService, CurrentUserService, LocalStorageService) {
     $scope.products = ProductService.getAll();
     $scope.user = CurrentUserService.get();
-    $scope.purchased = UserProductService.purchasedproducts;
+    $scope.server = LocalStorageService.get();
 });
 
 
@@ -105,17 +105,30 @@ app.service('CurrentUserService', function() {
 });
 
 
-app.service('UserProductService', function() {
-    if(typeof localStorage['purchasedProductsLocal'] === 'undefined'){
-        localStorage['purchasedProductsLocal'] = []
+
+app.service('LocalStorageService', function() {
+
+    //if var is not defnied in lS, define it here
+    if(typeof localStorage['purchasedProducts'] === 'undefined'){
+        localStorage['purchasedProducts'] = []
     }
 
-    this.purchasedproducts = localStorage['purchasedProductsLocal'];
+    var userProducts;
+    userProducts = JSON.parse(localStorage.getItem('purchasedProducts'));
+
+    this.get = function () {
+        return userProducts;
+    };
+
+    //I need to call the function below when a product is purchased successfully in order to update lS
+
+    localStorage.setItem( 'purchasedProducts', JSON.stringify( userProducts ) );
+
 });
 
 
 
-app.directive('storeProduct', function(CurrentUserService, UserProductService) {
+app.directive('storeProduct', function(CurrentUserService, LocalStorageService) {
     return {
         restrict: 'E',
         scope: {
@@ -124,21 +137,15 @@ app.directive('storeProduct', function(CurrentUserService, UserProductService) {
         templateUrl: 'js/store-product.html',
         link: function(scope) {
             scope.user = CurrentUserService.get();
-            scope.purchased = UserProductService.purchasedproducts;
+            scope.server = LocalStorageService.get();
             scope.purchase = function(product) {
                 if(confirm('Confirm if you like to purchase' + ' ' + product.name)) {
                     scope.user.remainingPoints = scope.user.remainingPoints - product.points;
-                    var a = localStorage['purchasedProductsLocal'];
-                    if (a.length < 1) {
-                        scope.purchased = localStorage['purchasedProductsLocal'] = String(product.id);
-                    }
-                    else {
-                        scope.purchased = localStorage['purchasedProductsLocal'] = [a,",", product.id].join('');
-                    }
+                    userProducts.push(product.id)
+
                 }
            };
         }
     }
 });
 
-//NEXT TASK: add user points to localStorage
