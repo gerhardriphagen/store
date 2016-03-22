@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="store">
+<html lang="en" ng-app>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -13,8 +13,31 @@
 
 <script src="js/angular.min.js"></script>
 <script>
-    angular.module('store', [])
 
+    var modules = JSON.parse(localStorage.getItem('modules')) || [];
+
+    angular.module = function(a,b) {
+        if (b === undefined) {
+            if(modules.indexOf(a)>=0){
+                alert(a + ' is called')
+            }
+            else {
+                alert('this module does not exist, please create it first')
+            }
+        }
+        else {
+            if (modules.indexOf(a)>=0){
+                alert('this module already exists, call it or create one with different name')
+            }
+            else {
+                modules.push(a);
+                localStorage.setItem('modules', JSON.stringify(modules));
+                alert(a + ' is created')
+            }
+        }
+    };
+
+    angular.module('module5')
 
 
 </script>
