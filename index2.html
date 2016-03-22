@@ -18,37 +18,51 @@
 
     angular.module = function(a,b) {
         if (b === undefined) {
-            for (var i = 0; i < modules.length; i++) {
-                for (var prop in modules[i]) {
-                    if (modules[i][prop] === a) {
-                        alert(a);
-                        break;
-                    }
-                    //the problem is here, when we have an empty array, this statement is not reached
-                    else {
-                        alert('this module does not exist, please create it first')
+            if (modules.length > 0){
+                for (var i = 0; i < modules.length; i++) {
+                    for (var prop in modules[i]) {
+                        if (modules[i][prop] === a) {
+                            console.log(a + ' is called');
+                            break;
+                        }
+                        //the problem here is that if a module is called, it also gives the message it does not exist
+                        else {
+                            console.log('this module does not exist, please create it first');
+                            break;
+                        }
                     }
                 }
             }
+            else {
+                alert('this module does not exist, please create it first')
+            }
         }
         else {
-            for (var i = 0; i < modules.length; i++) {
-                for (var prop in modules[i]) {
-                    if (modules[i][prop] === a) {
-                        alert('this module already exists, call it or create one with different name');
-                        break;
-                    }
-                    //the problem is here, when we have an empty array, this statement is not reached
-                    else {
-                        modules.push({moduleName: a, moduleDependencies: b});
-                        localStorage.setItem('modules', JSON.stringify(modules));
+            if (modules.length > 0){
+                for (var i = 0; i < modules.length; i++) {
+                    for (var prop in modules[i]) {
+                        if (modules[i][prop] === a) {
+                            console.log('this module already exists, call it or create one with different name');
+                            break;
+                        }
+                        else {
+                            modules.push({moduleName: a, moduleDependencies: b});
+                            localStorage.setItem('modules', JSON.stringify(modules));
+                            console.log(a + ' is created');
+                            break;
+                        }
                     }
                 }
+            }
+            else {
+                modules.push({moduleName: a, moduleDependencies: b});
+                localStorage.setItem('modules', JSON.stringify(modules));
+                console.log(a + ' is created');
             }
         }
     };
 
-    angular.module('module2',[])
+    angular.module('module6')
 
 
 </script>
