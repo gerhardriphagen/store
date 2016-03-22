@@ -1,26 +1,22 @@
-<!doctype html>
-<html ng-app="app">
+<!DOCTYPE html>
+<html lang="en" ng-app="store">
 <head>
-    <title>The Store</title>
-    <link rel="stylesheet" type="text/css" href="styles/main.css" />
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
-<body ng-controller="ProductController">
-    <div class="mainheader">
-        <div class="userinfo">
-            <div>{{user.firstName}} {{user.lastName}}</div>
-            <div>Points: {{user.remainingPoints}}</div>
-        </div>
-    </div>
-    <div>
-        <div class="mainpart" >
-            <store-product product="p" ng-repeat="p in products" class="card"></store-product>
-        </div>
+<body>
 
-    </div>
+{{1+1}}
 
 
-    <script src="js/angular.js"></script>
-    <script src="js/app.js"></script>
+
+
+<script src="js/angular.min.js"></script>
+<script>
+    angular.module('store', [])
+
+
+
+</script>
 </body>
 </html>
-
