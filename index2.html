@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="hfjf">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -9,63 +9,7 @@
 {{1+1}}
 
 
-
-
-<script src="js/angular.min.js"></script>
-<script>
-
-    var modules = JSON.parse(localStorage.getItem('modules')) || [];
-
-    angular.module = function(a,b) {
-        if (b === undefined) {
-            if (modules.length > 0){
-                for (var i = 0; i < modules.length; i++) {
-                    for (var prop in modules[i]) {
-                        if (modules[i][prop] === a) {
-                            console.log(a + ' is called');
-                            break;
-                        }
-                        //the problem here is that if a module is called, it also gives the message it does not exist
-                        else {
-                            console.log('this module does not exist, please create it first');
-                            break;
-                        }
-                    }
-                }
-            }
-            else {
-                alert('this module does not exist, please create it first')
-            }
-        }
-        else {
-            if (modules.length > 0){
-                for (var i = 0; i < modules.length; i++) {
-                    for (var prop in modules[i]) {
-                        if (modules[i][prop] === a) {
-                            console.log('this module already exists, call it or create one with different name');
-                            break;
-                        }
-                        else {
-                            modules.push({moduleName: a, moduleDependencies: b});
-                            localStorage.setItem('modules', JSON.stringify(modules));
-                            console.log(a + ' is created');
-                            break;
-                        }
-                    }
-                }
-            }
-            else {
-                modules.push({moduleName: a, moduleDependencies: b});
-                localStorage.setItem('modules', JSON.stringify(modules));
-                console.log(a + ' is created');
-            }
-        }
-    };
-
-    angular.module('module6')
-
-
-</script>
+<script src="js/app.js"></script>
 </body>
 </html>
 

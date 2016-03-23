@@ -10,34 +10,34 @@
 
 
 
-
-<script src="js/angular.min.js"></script>
 <script>
 
     var modules = JSON.parse(localStorage.getItem('modules')) || [];
 
+    var angular = {};
+
     angular.module = function(a,b) {
         if (b === undefined) {
             if(modules.indexOf(a)>=0){
-                alert(a + ' is called')
+                console.log(a + ' is called')
             }
             else {
-                alert('this module does not exist, please create it first')
+                throw 'this module does not exist, please create it first';
             }
         }
         else {
             if (modules.indexOf(a)>=0){
-                alert('this module already exists, call it or create one with different name')
+                throw 'this module already exists, call it or create one with different name'
             }
             else {
                 modules.push(a);
                 localStorage.setItem('modules', JSON.stringify(modules));
-                alert(a + ' is created')
+                console.log(a + ' is created')
             }
         }
     };
 
-    angular.module('module5')
+    angular.module('module1')
 
 
 </script>
