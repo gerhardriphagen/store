@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="module1">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -9,37 +9,8 @@
 {{1+1}}
 
 
-
-<script>
-
-    var modules = JSON.parse(localStorage.getItem('modules')) || [];
-
-    var angular = {};
-
-    angular.module = function(a,b) {
-        if (b === undefined) {
-            if(modules.indexOf(a)>=0){
-                console.log(a + ' is called')
-            }
-            else {
-                throw 'this module does not exist, please create it first';
-            }
-        }
-        else {
-            if (modules.indexOf(a)>=0){
-                throw 'this module already exists, call it or create one with different name'
-            }
-            else {
-                modules.push(a);
-                localStorage.setItem('modules', JSON.stringify(modules));
-                console.log(a + ' is created')
-            }
-        }
-    };
-
-    angular.module('module1')
-
-
-</script>
+<script src="js/app.js"></script>
 </body>
 </html>
+
+

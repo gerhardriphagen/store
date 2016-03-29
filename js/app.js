@@ -24,7 +24,6 @@ angular.module = function(name,dependencies) {
     }
 };
 
-
 angular.module('module1',[]);
 check('created module does exist', modules.some((module) => module.name === 'module1'), true);
 
@@ -33,13 +32,15 @@ angular.module('module1');
 check('existing module can be called', (modules.filter((module) => module.name === 'module1')[0]) !== null && typeof (modules.filter((module) => module.name === 'module1')[0]) === 'object', true);
 
 
+check('ng-app module does exist', modules.some((module) => module.name === document.getElementsByTagName("html")[0].getAttribute("ng-app")), true);
+
+
 var error = false;
 try{
     angular.module('module2');
 } catch(e) {
     error = true;
 }
-
 check('uncreated module does not exist', error, true);
 
 
@@ -49,7 +50,6 @@ try{
 } catch(e) {
     error = true;
 }
-
 check('existing module cannot be created', error, true);
 
 
@@ -61,6 +61,10 @@ function check(testname ,actual, expected) {
     }
 }
 
-
-//TODO: access ng-app from selectors (document.queryselector ....)
 //TODO: read about try-catch statement
+
+try{
+    throw 'aasdfa'
+} catch(e) {
+    console.log(e + ' is the error')
+}
