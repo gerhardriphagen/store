@@ -2,6 +2,44 @@ var modules = [];
 
 var angular = {};
 
+
+
+
+
+function testMethod(value){
+    var testArray = [1,2,3];
+
+    if(testArray.some((x)=>x === value)){
+        console.log('value found')
+    }
+    else {
+        console.log('value not found')
+    }
+}
+
+testMethod(1);
+
+
+
+//TODO: find out why 'some' method is not working with this array of html elements
+function getElement(selector){
+    var allElements = document.getElementsByTagName("*");
+
+    if(allElements.some((element) => element === selector)){
+        console.log('element found')
+    }
+    else {
+        console.log('element not found')
+    }
+}
+
+getElement('html');
+
+
+
+
+
+
 angular.module = function(name,dependencies) {
     if (dependencies === undefined) {
 
@@ -32,7 +70,7 @@ angular.module('module1');
 check('existing module can be called', (modules.filter((module) => module.name === 'module1')[0]) !== null && typeof (modules.filter((module) => module.name === 'module1')[0]) === 'object', true);
 
 
-check('ng-app module does exist', modules.some((module) => module.name === document.getElementsByTagName("html")[0].getAttribute("ng-app")), true);
+check('ng-app module does exist', modules.some((module) => module.name === document.querySelector("[ng-app]").getAttribute("ng-app")), true);
 
 
 var error = false;
@@ -59,12 +97,4 @@ function check(testname ,actual, expected) {
     } else {
         console.log(testname + ' failed')
     }
-}
-
-//TODO: read about try-catch statement
-
-try{
-    throw 'aasdfa'
-} catch(e) {
-    console.log(e + ' is the error')
 }
