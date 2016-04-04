@@ -9,21 +9,21 @@ function getElement(selector){
     for (element in allElements) {
         var stringElement = allElements[element].outerHTML;
 
-        if(typeof stringElement === "string" && stringElement.indexOf(selector) > -1) {
-            console.log(allElements[element].outerHTML)
+        if(typeof stringElement === "string"){
+            if(selector.substr(0,1) === "."){                       //css selector is class
+                console.log(allElements[element].outerHTML)
+            }
+            else if(selector.substr(0,1) === "#"){                  //css selector is id
+                console.log(allElements[element].outerHTML)
+            }
+            else if(stringElement.indexOf("<" + selector) > -1){    //css selector is tag
+                console.log(allElements[element].outerHTML)
+            }
         }
     }
 }
 
-getElement('html');
-
-
-//TODO:
-//currently, I always output the element if the substring matches something in the element
-// if starts with . => class
-// if starts with # => id
-// if it's between "<" and "space" of ">" => tag
-
+getElement('title');
 
 
 angular.module = function(name,dependencies) {
