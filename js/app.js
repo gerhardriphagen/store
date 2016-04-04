@@ -19,11 +19,14 @@ function getElement(selector){
             else if(stringElement.indexOf("<" + selector) > -1){    //css selector is tag
                 console.log(allElements[element].outerHTML)
             }
+            else if(stringElement.indexOf(selector + "=") > -1){    //css selector is attribute
+                console.log(allElements[element].outerHTML)
+            }
         }
     }
 }
 
-getElement('title');
+getElement('ng-app');
 
 
 angular.module = function(name,dependencies) {
