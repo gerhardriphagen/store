@@ -3,40 +3,26 @@ var modules = [];
 var angular = {};
 
 
-
-
-
-function testMethod(value){
-    var testArray = [1,2,3];
-
-    if(testArray.some((x)=>x === value)){
-        console.log('value found')
-    }
-    else {
-        console.log('value not found')
-    }
-}
-
-testMethod(1);
-
-
-
-//TODO: find out why 'some' method is not working with this array of html elements
 function getElement(selector){
     var allElements = document.getElementsByTagName("*");
 
-    if(allElements.some((element) => element === selector)){
-        console.log('element found')
-    }
-    else {
-        console.log('element not found')
+    for (element in allElements) {
+        var stringElement = allElements[element].outerHTML;
+
+        if(typeof stringElement === "string" && stringElement.indexOf(selector) > -1) {
+            console.log(allElements[element].outerHTML)
+        }
     }
 }
 
 getElement('html');
 
 
-
+//TODO:
+//currently, I always output the element if the substring matches something in the element
+// if starts with . => class
+// if starts with # => id
+// if it's between "<" and "space" of ">" => tag
 
 
 
