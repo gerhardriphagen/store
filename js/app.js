@@ -4,29 +4,27 @@ var angular = {};
 
 
 function getElement(selector){
-    var allElements = document.getElementsByTagName("*");
 
-    for (element in allElements) {
-        var stringElement = allElements[element].outerHTML;
-
-        if(typeof stringElement === "string"){
-            if(selector.substr(0,1) === "."){                       //css selector is class
-                console.log(allElements[element].outerHTML)
-            }
-            else if(selector.substr(0,1) === "#"){                  //css selector is id
-                console.log(allElements[element].outerHTML)
-            }
-            else if(stringElement.indexOf("<" + selector) > -1){    //css selector is tag
-                console.log(allElements[element].outerHTML)
-            }
-            else if(stringElement.indexOf(selector + "=") > -1){    //css selector is attribute
-                console.log(allElements[element].outerHTML)
-            }
+    if (selector.substr(0,1) === ".") {                             //css selector is class
+        var classname = selector.substr(1);
+        var elements = document.getElementsByClassName(classname);
+        for (element in elements) {
+            console.log(elements[element].outerHTML)
         }
     }
+
+    if(selector.substr(0,1) === "#"){                               //css selector is id
+        var idname = selector.substr(1);
+        var element = document.getElementById(idname).outerHTML;
+        console.log(element)
+    }
+
+    //css selector is tag
+
+    //css selector is attribute
 }
 
-getElement('ng-app');
+getElement('#my-id');
 
 
 angular.module = function(name,dependencies) {
