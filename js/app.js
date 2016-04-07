@@ -13,17 +13,14 @@ function getElement(selector){
         }
     }
 
-
     if(selector.substr(0,1) === "#"){                               //css selector is id
         var idname = selector.substr(1);
         var element = document.getElementById(idname).outerHTML;
         console.log(element)
     }
 
-
     if (selector.indexOf("[") !== -1) {                             //css selector is attribute
         var attrname = selector.slice(1,-1);
-
         var allElements = document.getElementsByTagName('*');
         for (i = 0; i < allElements.length; i++) {
             if (allElements[i].getAttribute(attrname) !== null) {
@@ -31,9 +28,13 @@ function getElement(selector){
             }
         }
     }
-    
-    //css selector is tag
 
+    if (selector.indexOf("[") === -1 && selector.substr(0,1) !== "#" && selector.substr(0,1) !== "."){
+        var tagElements = document.getElementsByTagName(selector);  //css selector is tag
+        for (i=0 ; i < tagElements.length; i++){
+            console.log(tagElements[i].outerHTML)
+        }
+    }
 }
 
 getElement('[ng-app]');
