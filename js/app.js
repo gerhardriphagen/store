@@ -9,14 +9,14 @@ function getElement(selector){
         var classname = selector.substr(1);
         var elements = document.getElementsByClassName(classname);
         for (element in elements) {
-            console.log(elements[element].outerHTML)
+            return elements[element].outerHTML
         }
     }
 
     if(selector.substr(0,1) === "#"){                               //css selector is id
         var idname = selector.substr(1);
         var element = document.getElementById(idname).outerHTML;
-        console.log(element)
+        return element
     }
 
     if (selector.indexOf("[") !== -1) {                             //css selector is attribute
@@ -24,7 +24,7 @@ function getElement(selector){
         var allElements = document.getElementsByTagName('*');
         for (i = 0; i < allElements.length; i++) {
             if (allElements[i].getAttribute(attrname) !== null) {
-                console.log(allElements[i].outerHTML);
+                return allElements[i].outerHTML
             }
         }
     }
@@ -32,7 +32,7 @@ function getElement(selector){
     if (selector.indexOf("[") === -1 && selector.substr(0,1) !== "#" && selector.substr(0,1) !== "."){
         var tagElements = document.getElementsByTagName(selector);  //css selector is tag
         for (i=0 ; i < tagElements.length; i++){
-            console.log(tagElements[i].outerHTML)
+            return tagElements[i].outerHTML
         }
     }
 }
