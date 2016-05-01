@@ -4,29 +4,40 @@ var angular = {};
 
 
 function getElement(selector){
-    var allElements = document.getElementsByTagName("*");
 
-    for (element in allElements) {
-        var stringElement = allElements[element].outerHTML;
+    if (selector.substr(0,1) === ".") {                             //css selector is class
+        var classname = selector.substr(1);
+        var elements = document.getElementsByClassName(classname);
+        for (element in elements) {
+            return elements[element].outerHTML
+        }
+    }
 
-        if(typeof stringElement === "string"){
-            if(selector.substr(0,1) === "."){                       //css selector is class
-                console.log(allElements[element].outerHTML)
+    if(selector.substr(0,1) === "#"){                               //css selector is id
+        var idname = selector.substr(1);
+        var element = document.getElementById(idname).outerHTML;
+        return element
+    }
+
+    if (selector.indexOf("[") !== -1) {                             //css selector is attribute
+        var attrname = selector.slice(1,-1);
+        var allElements = document.getElementsByTagName('*');
+        for (i = 0; i < allElements.length; i++) {
+            if (allElements[i].getAttribute(attrname) !== null) {
+                return allElements[i].outerHTML
             }
-            else if(selector.substr(0,1) === "#"){                  //css selector is id
-                console.log(allElements[element].outerHTML)
-            }
-            else if(stringElement.indexOf("<" + selector) > -1){    //css selector is tag
-                console.log(allElements[element].outerHTML)
-            }
-            else if(stringElement.indexOf(selector + "=") > -1){    //css selector is attribute
-                console.log(allElements[element].outerHTML)
-            }
+        }
+    }
+
+    if (selector.indexOf("[") === -1 && selector.substr(0,1) !== "#" && selector.substr(0,1) !== "."){
+        var tagElements = document.getElementsByTagName(selector);  //css selector is tag
+        for (i=0 ; i < tagElements.length; i++){
+            return tagElements[i].outerHTML
         }
     }
 }
 
-getElement('ng-app');
+getElement('[ng-app]');
 
 
 angular.module = function(name,dependencies) {
@@ -50,40 +61,3 @@ angular.module = function(name,dependencies) {
         }
     }
 };
-
-angular.module('module1',[]);
-check('created module does exist', modules.some((module) => module.name === 'module1'), true);
-
-
-angular.module('module1');
-check('existing module can be called', (modules.filter((module) => module.name === 'module1')[0]) !== null && typeof (modules.filter((module) => module.name === 'module1')[0]) === 'object', true);
-
-
-check('ng-app module does exist', modules.some((module) => module.name === document.querySelector("[ng-app]").getAttribute("ng-app")), true);
-
-
-var error = false;
-try{
-    angular.module('module2');
-} catch(e) {
-    error = true;
-}
-check('uncreated module does not exist', error, true);
-
-
-var error = false;
-try{
-    angular.module('module1',[]);
-} catch(e) {
-    error = true;
-}
-check('existing module cannot be created', error, true);
-
-
-function check(testname ,actual, expected) {
-    if(actual === expected) {
-        console.log(testname + ' passed')
-    } else {
-        console.log(testname + ' failed')
-    }
-}
