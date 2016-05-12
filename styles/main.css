@@ -59,6 +59,11 @@ h4 {
     margin-bottom: 1.33em;
 }
 
+td a {
+    display:block;
+    width:100%;
+}
+
 /*STORE PAGE STRUCTURE*/
 
 .mainpart {
